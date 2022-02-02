@@ -43,9 +43,15 @@
                         </tr>
                     </tfoot>
                     <tbody>
+                        @php 
+                        $sl = 0
+                        @endphp
                         @foreach($banners as $banner)
+                        @php 
+                            $sl++
+                        @endphp
                         <tr>
-                            <td>{{ $banner->id }}</td>
+                            <td>{{ $sl }}</td>
                             <td>{{ $banner->sub_title }}</td>
                             <td>{{ $banner->title }}</td>
                             <td>{{ $banner->description }}</td>

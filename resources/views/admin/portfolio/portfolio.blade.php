@@ -43,9 +43,15 @@
                         </tr>
                     </tfoot>
                     <tbody>
+                        @php
+                            $sl = 0
+                        @endphp
                         @foreach($portfolioes as $portfolio)
+                        @php 
+                        $sl++
+                        @endphp
                         <tr>
-                            <td>{{ $portfolio->id }}</td>
+                            <td>{{ $sl }}</td>
                             <td>{{ $portfolio->sub_title }}</td>
                             <td>{{ $portfolio->title }}</td>
                             <td>{!! $portfolio->description !!}</td>

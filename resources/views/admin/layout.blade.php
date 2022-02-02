@@ -113,6 +113,21 @@
                 </div>
             </li>
 
+             <!-- Nav Item - Pages Collapse Menu -->
+             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Services Section</span>
+                </a>
+                <div id="collapseFive" class="collapse {{ (request()->is('services') || request()->is('service/create')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item {{ (request()->is('service/create')) ? 'active':'' }}" href="{{ route('service.create') }}">Add Service</a>
+                        <a class="collapse-item {{ (request()->is('services')) ? 'active':'' }}" href="{{ route('service.index') }}">View Services</a>
+                    </div>
+                </div>
+            </li>
+
 
            
             <!-- Nav Item - Charts -->
@@ -234,6 +249,14 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('admin_assets/vendor/jquery/jquery.min.js') }}"></script>
+    <script>
+        $('.icons').click(function(){
+            
+            var icon_class = $(this).text();
+            $('#icon_input').attr('value',icon_class);
+        })
+       
+    </script>
     <script src="{{ asset('admin_assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Core plugin JavaScript-->
@@ -248,12 +271,15 @@
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('admin_assets/js/demo/datatables-demo.js') }}"></script>
+    
     <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('.ckeditor').ckeditor();
         });
     </script>
+
+   
 </body>
 
 </html>

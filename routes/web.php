@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\PortfolioController;
+use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\TestimonialController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
@@ -66,4 +67,13 @@ Route::group(['middleware' => ['protectedRoutes']], function(){
     Route::put('/testimonial/{id}',[TestimonialController::class,'update'])->name('testimonial.update');
     Route::delete('/testimonial/{id}',[TestimonialController::class,'destroy'])->name('testimonial.delete');
     Route::get('/testimonial/status/{id}', [TestimonialController::class ,'changeStatus']); 
+
+    // Routes Services
+    Route::get('/services',[ServiceController::class,'index'])->name('service.index');
+    Route::get('/service/create',[ServiceController::class,'create'])->name('service.create');
+    Route::post('/service/create',[ServiceController::class,'store'])->name('service.store');
+    Route::get('/service/{id}/edit',[ServiceController::class,'edit'])->name('service.edit');
+    Route::put('/service/{id}',[ServiceController::class,'update'])->name('service.update');
+    Route::delete('/service/{id}',[ServiceController::class,'destroy'])->name('service.delete');
+    Route::get('/service/status/{id}', [ServiceController::class ,'changeStatus']); 
 });

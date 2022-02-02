@@ -43,9 +43,15 @@
                     </tr>
                 </tfoot>
                 <tbody>
+                    @php
+                        $sl = 0 
+                    @endphp
                     @foreach($about_data as $about)
+                     @php 
+                     $sl++
+                     @endphp 
                     <tr>
-                        <td>{{ $about->id }}</td>
+                        <td>{{ $sl }}</td>
                         <td>{{ $about->sub_title }}</td>
                         <td>{{ $about->title }}</td>
                         <td>{{ $about->description }}</td>
