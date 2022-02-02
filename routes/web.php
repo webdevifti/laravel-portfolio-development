@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\BannerController;
+use App\Http\Controllers\admin\BrandController;
 use App\Http\Controllers\admin\PortfolioController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\TestimonialController;
@@ -76,4 +77,13 @@ Route::group(['middleware' => ['protectedRoutes']], function(){
     Route::put('/service/{id}',[ServiceController::class,'update'])->name('service.update');
     Route::delete('/service/{id}',[ServiceController::class,'destroy'])->name('service.delete');
     Route::get('/service/status/{id}', [ServiceController::class ,'changeStatus']); 
+
+    // Routes Brands
+    Route::get('/brands',[BrandController::class,'index'])->name('brand.index');
+    Route::get('/brand/create',[BrandController::class,'create'])->name('brand.create');
+    Route::post('/brand/create',[BrandController::class,'store'])->name('brand.store');
+    Route::get('/brand/{id}/edit',[BrandController::class,'edit'])->name('brand.edit');
+    Route::put('/brand/{id}',[BrandController::class,'update'])->name('brand.update');
+    Route::delete('/brand/{id}',[BrandController::class,'destroy'])->name('brand.delete');
+    Route::get('/brand/status/{id}', [BrandController::class ,'changeStatus']);
 });

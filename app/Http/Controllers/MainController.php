@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Banner;
+use App\Models\Brand;
 use App\Models\Portfolio;
 use App\Models\Service;
 use App\Models\Testimonial;
@@ -19,7 +20,8 @@ class MainController extends Controller
         $portfolio_data = Portfolio::where('status','=',1)->get();
         $testimonial_data = Testimonial::where('status','=',1)->get();
         $service_data = Service::where('status','=',1)->limit(6)->get();
-        return view('index',['banners' => $banner_data,'about_data' => $about_data,'portfolio_data'=> $portfolio_data, 'testimonials' => $testimonial_data,'services' => $service_data]);
+        $brand_data = Brand::where('status','=',1)->get();
+        return view('index',['banners' => $banner_data,'about_data' => $about_data,'portfolio_data'=> $portfolio_data, 'testimonials' => $testimonial_data,'services' => $service_data,'brands'=>$brand_data]);
     }
     public function show($id, $slug){
         

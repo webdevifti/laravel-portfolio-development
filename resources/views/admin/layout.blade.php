@@ -127,6 +127,20 @@
                     </div>
                 </div>
             </li>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Brand Section</span>
+                </a>
+                <div id="collapseSix" class="collapse {{ (request()->is('brands') || request()->is('brand/create')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item {{ (request()->is('brand/create')) ? 'active':'' }}" href="{{ route('brand.create') }}">Add Brand</a>
+                        <a class="collapse-item {{ (request()->is('brands')) ? 'active':'' }}" href="{{ route('brand.index') }}">View Brands</a>
+                    </div>
+                </div>
+            </li>
 
 
            

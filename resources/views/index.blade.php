@@ -277,42 +277,24 @@
             <!-- testimonial-area-end -->
 
             <!-- brand-area -->
+            @if($brands)
             <div class="barnd-area pt-100 pb-100">
                 <div class="container">
                     <div class="row brand-active">
+                        @foreach($brands as $key=>$brand)
+                        @php 
+                        $i = $key;
+                        @endphp
                         <div class="col-xl-2">
                             <div class="single-brand">
-                                <img src="{{ asset('site_assets/img/brand/brand_img01.png') }}" alt="img">
+                                <img src="{{ asset('uploads/brands/'.$brand->brand_image) }}" alt="img">
                             </div>
                         </div>
-                        <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="{{ asset('site_assets/img/brand/brand_img02.png') }}" alt="img">
-                            </div>
-                        </div>
-                        <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="{{ asset('site_assets/img/brand/brand_img03.png') }}" alt="img">
-                            </div>
-                        </div>
-                        <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="{{ asset('site_assets/img/brand/brand_img04.png') }}" alt="img">
-                            </div>
-                        </div>
-                        <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="{{ asset('site_assets/img/brand/brand_img05.png') }}" alt="img">
-                            </div>
-                        </div>
-                        <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="{{ asset('site_assets/img/brand/brand_img03.png') }}" alt="img">
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
+            @endif
             <!-- brand-area-end -->
 
             <!-- contact-area -->
