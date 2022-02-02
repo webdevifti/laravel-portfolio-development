@@ -7,6 +7,7 @@ use App\Models\Banner;
 use App\Models\Brand;
 use App\Models\Portfolio;
 use App\Models\Service;
+use App\Models\SocialLink;
 use App\Models\Testimonial;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -21,7 +22,8 @@ class MainController extends Controller
         $testimonial_data = Testimonial::where('status','=',1)->get();
         $service_data = Service::where('status','=',1)->limit(6)->get();
         $brand_data = Brand::where('status','=',1)->get();
-        return view('index',['banners' => $banner_data,'about_data' => $about_data,'portfolio_data'=> $portfolio_data, 'testimonials' => $testimonial_data,'services' => $service_data,'brands'=>$brand_data]);
+        $social_data = SocialLink::where('status','=',1)->get();
+        return view('index',['banners' => $banner_data,'about_data' => $about_data,'portfolio_data'=> $portfolio_data, 'testimonials' => $testimonial_data,'services' => $service_data,'brands'=>$brand_data,'social_links'=>$social_data]);
     }
     public function show($id, $slug){
         

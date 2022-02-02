@@ -142,6 +142,20 @@
                 </div>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSeven"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Social Links</span>
+                </a>
+                <div id="collapseSeven" class="collapse {{ (request()->is('social-links') || request()->is('social/create')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item {{ (request()->is('social/create')) ? 'active':'' }}" href="{{ route('social.create') }}">Add Social</a>
+                        <a class="collapse-item {{ (request()->is('socials')) ? 'active':'' }}" href="{{ route('social.index') }}">View Social Links</a>
+                    </div>
+                </div>
+            </li>
+
 
            
             <!-- Nav Item - Charts -->

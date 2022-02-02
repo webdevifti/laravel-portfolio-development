@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\BrandController;
 use App\Http\Controllers\admin\PortfolioController;
 use App\Http\Controllers\admin\ServiceController;
+use App\Http\Controllers\admin\SocialLinksController;
 use App\Http\Controllers\admin\TestimonialController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
@@ -86,4 +87,13 @@ Route::group(['middleware' => ['protectedRoutes']], function(){
     Route::put('/brand/{id}',[BrandController::class,'update'])->name('brand.update');
     Route::delete('/brand/{id}',[BrandController::class,'destroy'])->name('brand.delete');
     Route::get('/brand/status/{id}', [BrandController::class ,'changeStatus']);
+
+    // Routes Social Links
+    Route::get('/socials',[SocialLinksController::class,'index'])->name('social.index');
+    Route::get('/social/create',[SocialLinksController::class,'create'])->name('social.create');
+    Route::post('/social/create',[SocialLinksController::class,'store'])->name('social.store');
+    Route::get('/social/{id}/edit',[SocialLinksController::class,'edit'])->name('social.edit');
+    Route::put('/social/{id}',[SocialLinksController::class,'update'])->name('social.update');
+    Route::delete('/social/{id}',[SocialLinksController::class,'destroy'])->name('social.delete');
+    Route::get('/social/status/{id}', [SocialLinksController::class ,'changeStatus']);
 });

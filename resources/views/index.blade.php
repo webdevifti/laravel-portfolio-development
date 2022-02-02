@@ -1,6 +1,44 @@
 @extends('app.layout')
         <!-- header-end -->
 @section('mainContent')
+    <!-- offcanvas-start -->
+    <div class="extra-info">
+        <div class="close-icon menu-close">
+            <button>
+                <i class="far fa-window-close"></i>
+            </button>
+        </div>
+        <div class="logo-side mb-30">
+            <a href="index-2.html">
+                <img src="img/logo/logo.png" alt="" />
+            </a>
+        </div>
+        <div class="side-info mb-30">
+            <div class="contact-list mb-30">
+                <h4>Office Address</h4>
+                <p>123/A, Miranda City Likaoli
+                    Prikano, Dope</p>
+            </div>
+            <div class="contact-list mb-30">
+                <h4>Phone Number</h4>
+                <p>+0989 7876 9865 9</p>
+            </div>
+            <div class="contact-list mb-30">
+                <h4>Email Address</h4>
+                <p>info@example.com</p>
+            </div>
+        </div>
+        @if($social_links)
+        <div class="social-icon-right mt-20">
+            @foreach($social_links as $social)
+                <a href="{{ $social->social_url }}"><i class="{{ $social->social_icon }}"></i></a>
+            @endforeach
+        </div>
+        @endif
+    </div>
+    <div class="offcanvas-overly"></div>
+    <!-- offcanvas-end -->
+</header>
         <!-- main-area -->
         <main>
             @if($banners)
@@ -14,15 +52,17 @@
                                 <h6 class="wow fadeInUp" data-wow-delay="0.2s">{{ $banners->sub_title }}</h6>
                                 <h2 class="wow fadeInUp" data-wow-delay="0.4s">{{ $banners->title }}</h2>
                                 <p class="wow fadeInUp" data-wow-delay="0.6s">{{ $banners->description }}</p>
+                                @if($social_links)
                                 <div class="banner-social wow fadeInUp" data-wow-delay="0.8s">
                                     <ul>
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                                        @foreach ($social_links as $item)
+                                            
+                                        <li><a href="{{ $item->social_url }}"><i class="{{ $item->social_icon }}"></i></a></li>
+                                        @endforeach
                                     </ul>
                                 </div>
-                                <a href="#" class="btn wow fadeInUp" data-wow-delay="1s">SEE PORTFOLIOS</a>
+                                @endif
+                                <a href="#portfolio" class="btn wow fadeInUp" data-wow-delay="1s">SEE PORTFOLIOS</a>
                             </div>
                         </div>
                         <div class="col-xl-5 col-lg-6 d-none d-lg-block">
