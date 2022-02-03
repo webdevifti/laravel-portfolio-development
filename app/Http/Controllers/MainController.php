@@ -10,6 +10,7 @@ use App\Models\Education;
 use App\Models\Funfact;
 use App\Models\Portfolio;
 use App\Models\Service;
+use App\Models\SiteInformation;
 use App\Models\SocialLink;
 use App\Models\Testimonial;
 use App\Models\User;
@@ -28,16 +29,17 @@ class MainController extends Controller
         $social_data = SocialLink::where('status','=',1)->get();
         $fun_data = Funfact::where('status','=',1)->get();
         $address_data = Address::first();
-       
+        $site_info = SiteInformation::first();
         $education_data = Education::where('status','=',1)->orderBy('passing_year','DESC')->get();
-        return view('index',['banners' => $banner_data,'about_data' => $about_data,'portfolio_data'=> $portfolio_data, 'testimonials' => $testimonial_data,'services' => $service_data,'brands'=>$brand_data,'social_links'=>$social_data,'educations' => $education_data,'funs'=> $fun_data,'address'=>$address_data]);
+        return view('index',['banners' => $banner_data,'about_data' => $about_data,'portfolio_data'=> $portfolio_data, 'testimonials' => $testimonial_data,'services' => $service_data,'brands'=>$brand_data,'social_links'=>$social_data,'educations' => $education_data,'funs'=> $fun_data,'address'=>$address_data,'site_info' => $site_info]);
     }
     public function show($id, $slug){
         
         $portfolio = Portfolio::findOrFail($id);
         $get_user_id = Portfolio::select('user_id')->where('id','=',$id)->first();
         $user = User::findOrFail($get_user_id)->first();
-        return view('work',['portfolio' => $portfolio,'user' => $user]);
+        $site_info = SiteInformation::first();
+        return view('work',['portfolio' => $portfolio,'user' => $user,'site_info' => $site_info]);
 
     }
 }

@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\FunFactController;
 use App\Http\Controllers\admin\PortfolioController;
 use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\admin\ServiceController;
+use App\Http\Controllers\admin\SiteInformation;
 use App\Http\Controllers\admin\SocialLinksController;
 use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\admin\UserController;
@@ -46,6 +47,13 @@ Route::group(['middleware' => ['protectedRoutes']], function(){
     // Address Routes
     Route::get('/address-information',[AddressController::class, 'index'])->name('address');
     Route::put('/address/{id}',[AddressController::class, 'update'])->name('address.update');
+
+    // Site Information Routes
+    Route::get('/site-information', [SiteInformation::class, 'index'])->name('site.information');
+    Route::put('/site/information/{id}', [SiteInformation::class, 'updateInformation'])->name('site.information.update');
+    Route::put('/site/logo/{id}', [SiteInformation::class, 'updateLogo'])->name('site.logo.update');
+    Route::put('/site/icon/{id}', [SiteInformation::class, 'updateSiteIcon'])->name('site.icon.update');
+
 
     //  User Profile Routes
     Route::get('/users',[UserController::class, 'index'])->name('user.index');

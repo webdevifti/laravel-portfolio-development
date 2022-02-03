@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="uploads/logo/{{$site_info->site_icon}}">
         <!-- Place favicon.ico in the root directory -->
 
 		<!-- CSS here -->
@@ -46,8 +46,17 @@
                         <div class="col-xl-12">
                             <div class="main-menu">
                                 <nav class="navbar navbar-expand-lg">
-                                    <a href="{{ route('frontend') }}" class="navbar-brand logo-sticky-none"><img src="{{ asset('site_assets/img/logo/logo.png') }}" alt="Logo"></a>
-                                    <a href="{{ route('frontend') }}" class="navbar-brand s-logo-none"><img src="{{ asset('site_assets/img/logo/s_logo.png') }}" alt="Logo"></a>
+                                    @if($site_info)
+                                    <a href="{{ url('/') }}" class="navbar-brand logo-sticky-none">
+                                        <img src="{{ asset('uploads/logo/'.$site_info->logo) }}" alt="Logo">
+                                    </a>
+
+                                    <a href="{{ url('/') }}" class="navbar-brand s-logo-none">
+                                        <img src="{{ asset('uploads/logo/'.$site_info->logo) }}" alt="Logo">
+                                    </a>
+                                    @else
+                                        <a href="{{ url('/') }}"><h1>{{ config('app.name', 'webdevifti') }}</h1></a>
+                                    @endif
                                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                                         data-target="#navbarNav">
                                         <span class="navbar-icon"></span>

@@ -201,15 +201,19 @@
             </li>
             @endif
 
-           
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('address') }}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Address Information</span></a>
-            </li>
-
-            
+           @if(Auth::user()->user_type == 'admin')
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('address') }}">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Address Information</span></a>
+                </li>
+                <!-- Nav Item - Charts -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('site.information') }}">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Site Information</span></a>
+                </li>
+            @endif
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
