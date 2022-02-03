@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="shortcut icon" type="image/x-icon" href="uploads/logo/{{$site_info->site_icon}}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{asset('uploads/logo/'.$site_info->site_icon)}}">
         <!-- Place favicon.ico in the root directory -->
 
 		<!-- CSS here -->
