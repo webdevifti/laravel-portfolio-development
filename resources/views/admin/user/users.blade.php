@@ -58,6 +58,7 @@
                             <td>{{ $user->email }}</td>
                             <td><img width="100" src={{ asset('uploads/users/'.$user->user_photo) }} /></td>
                             <td>{{ $user->user_bio }}</td>
+                            <td>{{ $user->user_type }}</td>
                             <td>
                                 @if($user->status == 1)
                                     <a href="/user/status/{{ $user->id }}" class="btn btn-success btn-sm">Active</a>

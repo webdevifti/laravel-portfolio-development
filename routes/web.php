@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\BrandController;
 use App\Http\Controllers\admin\EducationController;
 use App\Http\Controllers\admin\FunFactController;
 use App\Http\Controllers\admin\PortfolioController;
+use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\SocialLinksController;
 use App\Http\Controllers\admin\TestimonialController;
@@ -35,6 +36,11 @@ Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
 
 Route::group(['middleware' => ['protectedRoutes']], function(){
+
+    //User Profile Routes
+    Route::get('/profile',[ProfileController::class,'index'])->name('profile');
+    Route::put('/profile/{id}',[ProfileController::class,'update'])->name('profile.update');
+    Route::put('/profile/changepass/{id}',[ProfileController::class,'updatePassword'])->name('profile.updatepass');
 
     //  User Profile Routes
     Route::get('/users',[UserController::class, 'index'])->name('user.index');
