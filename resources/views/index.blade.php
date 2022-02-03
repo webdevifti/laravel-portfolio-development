@@ -16,16 +16,15 @@
         <div class="side-info mb-30">
             <div class="contact-list mb-30">
                 <h4>Office Address</h4>
-                <p>123/A, Miranda City Likaoli
-                    Prikano, Dope</p>
+                <p>{{ $address->office_physical_address }}</p>
             </div>
             <div class="contact-list mb-30">
                 <h4>Phone Number</h4>
-                <p>+0989 7876 9865 9</p>
+                <p>{{ $address->phone_number }}</p>
             </div>
             <div class="contact-list mb-30">
                 <h4>Email Address</h4>
-                <p>info@example.com</p>
+                <p>{{ $address->email_address }}</p>
             </div>
         </div>
         @if($social_links)
@@ -278,17 +277,17 @@
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="section-title mb-20">
-                                <span>information</span>
-                                <h2>Contact Information</h2>
+                                <span>{{ $address->sub_title }}</span>
+                                <h2>{{ $address->title }}</h2>
                             </div>
                             <div class="contact-content">
-                                <p>Event definition is - somthing that happens occurre How evesnt sentence. Synonym when an unknown printer took a galley.</p>
+                                <p>{{ $address->description }}</p>
                                 <h5>OFFICE IN <span>NEW YORK</span></h5>
                                 <div class="contact-list">
                                     <ul>
-                                        <li><i class="fas fa-map-marker"></i><span>Address :</span>Event Center park WT 22 New York</li>
-                                        <li><i class="fas fa-headphones"></i><span>Phone :</span>+9 125 645 8654</li>
-                                        <li><i class="fas fa-globe-asia"></i><span>e-mail :</span>info@exemple.com</li>
+                                        <li><i class="fas fa-map-marker"></i><span>Address :</span>{{ $address->office_physical_address }}</li>
+                                        <li><i class="fas fa-headphones"></i><span>Phone :</span><a style="color:rgb(142, 156, 170);text-decoration: underline" href="callto:{{ $address->phone_number }}">{{ $address->phone_number }}</a></li>
+                                        <li><i class="fas fa-globe-asia"></i><span>e-mail :</span><a style="color:rgb(142, 156, 170);text-decoration: underline" href="mailto:{{ $address->email_address }}">{{ $address->email_address }}</a></li>
                                     </ul>
                                 </div>
                             </div>

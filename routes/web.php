@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AboutController;
+use App\Http\Controllers\admin\AddressController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\BrandController;
@@ -41,6 +42,10 @@ Route::group(['middleware' => ['protectedRoutes']], function(){
     Route::get('/profile',[ProfileController::class,'index'])->name('profile');
     Route::put('/profile/{id}',[ProfileController::class,'update'])->name('profile.update');
     Route::put('/profile/changepass/{id}',[ProfileController::class,'updatePassword'])->name('profile.updatepass');
+
+    // Address Routes
+    Route::get('/address-information',[AddressController::class, 'index'])->name('address');
+    Route::put('/address/{id}',[AddressController::class, 'update'])->name('address.update');
 
     //  User Profile Routes
     Route::get('/users',[UserController::class, 'index'])->name('user.index');
