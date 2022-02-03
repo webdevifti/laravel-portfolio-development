@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\PortfolioController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\SocialLinksController;
 use App\Http\Controllers\admin\TestimonialController;
+use App\Http\Controllers\admin\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 /*
@@ -34,6 +35,14 @@ Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
 
 Route::group(['middleware' => ['protectedRoutes']], function(){
+
+    //  User Profile Routes
+    Route::get('/users',[UserController::class, 'index'])->name('user.index');
+    Route::get('/user/create',[UserController::class, 'create'])->name('user.create');
+    Route::post('/user/create',[UserController::class, 'store'])->name('user.store');
+    Route::delete('/user/{id}',[UserController::class,'destroy'])->name('about.delete');
+    Route::get('/user/status/{id}',[UserController::class,'changeStatus']);
+
     // Routes For Banner Section
     Route::get('/banners',[BannerController::class,'index'])->name('banners.index');
     Route::get('/banners/create',[BannerController::class,'create'])->name('banners.create');

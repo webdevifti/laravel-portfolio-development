@@ -184,7 +184,22 @@
                 </div>
             </li>
 
-           
+            @if(Auth::user()->user_type == 'admin')
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsedse"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <div id="collapsedse" class="collapse {{ (request()->is('users') || request()->is('user/create')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item {{ (request()->is('user/create')) ? 'active':'' }}" href="{{ route('user.create') }}">Add User</a>
+                        <a class="collapse-item {{ (request()->is('users')) ? 'active':'' }}" href="{{ route('user.index') }}">View Users</a>
+                    </div>
+                </div>
+            </li>
+            @endif
 
            
             <!-- Nav Item - Charts -->
@@ -229,12 +244,12 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                                 <img class="img-profile rounded-circle"
-                                    src="{{ asset('admin_assets/users/'.Auth::user()->user_photo ) }}">
+                                    src="{{ asset('uploads/users/'.Auth::user()->user_photo ) }}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>

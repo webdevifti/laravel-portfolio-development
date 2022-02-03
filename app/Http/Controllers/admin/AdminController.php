@@ -12,6 +12,7 @@ use App\Models\Portfolio;
 use App\Models\Service;
 use App\Models\SocialLink;
 use App\Models\Testimonial;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,8 +45,8 @@ class AdminController extends Controller
         $fun = Funfact::all();
         $education = Education::all();
         $social = SocialLink::all();
-
-        return view('admin.index',compact('banner','about','portfolio','brand','testimonial','service','fun','education','social'));
+        $user = User::where('status','=',1)->get();
+        return view('admin.index',compact('banner','about','portfolio','brand','testimonial','service','fun','education','social','user'));
     }
     public function logout(Request $request) {
         Auth::logout();
