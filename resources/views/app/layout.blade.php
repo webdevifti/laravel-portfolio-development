@@ -5,8 +5,10 @@
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Kufa - Personal Portfolio HTML5 Template</title>
-        <meta name="description" content="">
+        <title></title>
+        <meta name="description" content="{{ $site_info->site_description }}">
+        <meta name="keywords" content="{{ $site_info->site_keyword }}">
+        <meta name="author" content="Eftekhar Alam">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="shortcut icon" type="image/x-icon" href="{{asset('uploads/logo/'.$site_info->site_icon)}}">
