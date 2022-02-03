@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\BrandController;
+use App\Http\Controllers\admin\EducationController;
 use App\Http\Controllers\admin\PortfolioController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\SocialLinksController;
@@ -51,6 +52,14 @@ Route::group(['middleware' => ['protectedRoutes']], function(){
     Route::delete('/about/{id}',[AboutController::class,'destroy'])->name('about.delete');
     Route::get('/about/status/{id}', [AboutController::class ,'changeStatus']);
 
+    // Routes For Education Section
+    Route::get('/educations',[EducationController::class,'index'])->name('education.index');
+    Route::get('/education/create',[EducationController::class,'create'])->name('education.create');
+    Route::post('/education/create',[EducationController::class,'store'])->name('education.store');
+    Route::get('/education/{id}/edit',[EducationController::class,'edit'])->name('education.edit');
+    Route::put('/education/{id}',[EducationController::class,'update'])->name('education.update');
+    Route::delete('/education/{id}',[EducationController::class,'destroy'])->name('education.delete');
+    Route::get('/education/status/{id}', [EducationController::class ,'changeStatus']);
 
     // Routes Portfolioes
     Route::get('/portfolioes',[PortfolioController::class,'index'])->name('portfolio.index');

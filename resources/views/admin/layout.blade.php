@@ -82,6 +82,20 @@
                     </div>
                 </div>
             </li>
+             <!-- Nav Item - Pages Collapse Menu -->
+             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEight"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Education Section</span>
+                </a>
+                <div id="collapseEight" class="collapse {{ (request()->is('educations') || request()->is('education/create')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item {{ (request()->is('education/create')) ? 'active':'' }}" href="{{ route('education.create') }}">Add Education</a>
+                        <a class="collapse-item {{ (request()->is('educations')) ? 'active':'' }}" href="{{ route('education.index') }}">View Education</a>
+                    </div>
+                </div>
+            </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -279,7 +293,7 @@
     <script src="{{ asset('admin_assets/vendor/jquery/jquery.min.js') }}"></script>
     <script>
         $('.icons').click(function(){
-            
+            $(this).addClass('bg-danger text-white');
             var icon_class = $(this).text();
             $('#icon_input').attr('value',icon_class);
         })

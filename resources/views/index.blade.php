@@ -93,66 +93,30 @@
                             </div>
                             <div class="about-content">
                                 <p>{{ $about_data->description }}</p>
-                                <h3>Education:</h3>
+                               @if($educations) <h3>Education:</h3> @endif
                             </div>
                             <!-- Education Item -->
+                            @if($educations)
+                            @php 
+                                $num = 10;
+                            @endphp
+                            @foreach($educations as $edu)
                             <div class="education">
-                                <div class="year">2020</div>
+                                <div class="year">{{ $edu->passing_year }}</div>
                                 <div class="line"></div>
                                 <div class="location">
-                                    <span>PHD of Interaction Design &amp; Animation</span>
+                                    <span>{{ $edu->certification }}</span>
                                     <div class="progressWrapper">
                                         <div class="progress">
-                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: {{ $edu->result_gpa}}%;" aria-valuenow="{{ $edu->result_gpa }}" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
+                            @endif
                             <!-- End Education Item -->
-                            <!-- Education Item -->
-                            <div class="education">
-                                <div class="year">2016</div>
-                                <div class="line"></div>
-                                <div class="location">
-                                    <span>Master of Database Administration</span>
-                                    <div class="progressWrapper">
-                                        <div class="progress">
-                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Education Item -->
-                            <!-- Education Item -->
-                            <div class="education">
-                                <div class="year">2010</div>
-                                <div class="line"></div>
-                                <div class="location">
-                                    <span>Bachelor of Computer Engineering</span>
-                                    <div class="progressWrapper">
-                                        <div class="progress">
-                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
-                                                aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Education Item -->
-                            <!-- Education Item -->
-                            <div class="education">
-                                <div class="year">2005</div>
-                                <div class="line"></div>
-                                <div class="location">
-                                    <span>Diploma of Computer</span>
-                                    <div class="progressWrapper">
-                                        <div class="progress">
-                                            <div class="progress-bar wow slideInLefts" data-wow-delay="0.2s" data-wow-duration="2s" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0"
-                                                aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Education Item -->
+                           
                         </div>
                     </div>
                 </div>
