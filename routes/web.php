@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\BrandController;
 use App\Http\Controllers\admin\EducationController;
+use App\Http\Controllers\admin\FunFactController;
 use App\Http\Controllers\admin\PortfolioController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\SocialLinksController;
@@ -105,4 +106,12 @@ Route::group(['middleware' => ['protectedRoutes']], function(){
     Route::put('/social/{id}',[SocialLinksController::class,'update'])->name('social.update');
     Route::delete('/social/{id}',[SocialLinksController::class,'destroy'])->name('social.delete');
     Route::get('/social/status/{id}', [SocialLinksController::class ,'changeStatus']);
+     // Routes Fun Facts
+     Route::get('/funfacts',[FunFactController::class,'index'])->name('funfact.index');
+     Route::get('/funfact/create',[FunFactController::class,'create'])->name('funfact.create');
+     Route::post('/funfact/create',[FunFactController::class,'store'])->name('funfact.store');
+     Route::get('/funfact/{id}/edit',[FunFactController::class,'edit'])->name('funfact.edit');
+     Route::put('/funfact/{id}',[FunFactController::class,'update'])->name('funfact.update');
+     Route::delete('/funfact/{id}',[FunFactController::class,'destroy'])->name('funfact.delete');
+     Route::get('/funfact/status/{id}', [FunFactController::class ,'changeStatus']);
 });

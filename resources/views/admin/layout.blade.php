@@ -57,7 +57,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fas fa-fw fa-address-card"></i>
                     <span>Banners Section</span>
                 </a>
                 <div id="collapseOne" class="collapse {{ (request()->is('banners') || request()->is('banners/create')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -72,7 +72,7 @@
              <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="far fa-fw fa-address-card"></i>
                     <span>About Section</span>
                 </a>
                 <div id="collapseTwo" class="collapse {{ (request()->is('about') || request()->is('about/create')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -86,7 +86,7 @@
              <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEight"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fas fa-fw fa-user-graduate"></i>
                     <span>Education Section</span>
                 </a>
                 <div id="collapseEight" class="collapse {{ (request()->is('educations') || request()->is('education/create')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -96,12 +96,26 @@
                     </div>
                 </div>
             </li>
+              <!-- Nav Item - Pages Collapse Menu -->
+              <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fab fa-fw fa-servicestack"></i>
+                    <span>Services Section</span>
+                </a>
+                <div id="collapseFive" class="collapse {{ (request()->is('services') || request()->is('service/create')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item {{ (request()->is('service/create')) ? 'active':'' }}" href="{{ route('service.create') }}">Add Service</a>
+                        <a class="collapse-item {{ (request()->is('services')) ? 'active':'' }}" href="{{ route('service.index') }}">View Services</a>
+                    </div>
+                </div>
+            </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fas fa-fw fa-project-diagram"></i>
                     <span>Portfolio Section</span>
                 </a>
                 <div id="collapseThree" class="collapse {{ (request()->is('portfolioes') || request()->is('portfolio/create')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -111,12 +125,25 @@
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNine"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-smile-wink"></i>
+                    <span>Fun Facts</span>
+                </a>
+                <div id="collapseNine" class="collapse {{ (request()->is('funfacts') || request()->is('funfact/create')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item {{ (request()->is('funfact/create')) ? 'active':'' }}" href="{{ route('funfact.create') }}">Add Funfact</a>
+                        <a class="collapse-item {{ (request()->is('funfacts')) ? 'active':'' }}" href="{{ route('funfact.index') }}">View Fun Fact</a>
+                    </div>
+                </div>
+            </li>
 
              <!-- Nav Item - Pages Collapse Menu -->
              <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fas fa-fw fa-comment-dots"></i>
                     <span>Testimonial Section</span>
                 </a>
                 <div id="collapseFour" class="collapse {{ (request()->is('testimonials') || request()->is('testimonial/create')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -127,25 +154,12 @@
                 </div>
             </li>
 
-             <!-- Nav Item - Pages Collapse Menu -->
-             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Services Section</span>
-                </a>
-                <div id="collapseFive" class="collapse {{ (request()->is('services') || request()->is('service/create')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item {{ (request()->is('service/create')) ? 'active':'' }}" href="{{ route('service.create') }}">Add Service</a>
-                        <a class="collapse-item {{ (request()->is('services')) ? 'active':'' }}" href="{{ route('service.index') }}">View Services</a>
-                    </div>
-                </div>
-            </li>
+           
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fas fa-fw fa-copyright"></i>
                     <span>Brand Section</span>
                 </a>
                 <div id="collapseSix" class="collapse {{ (request()->is('brands') || request()->is('brand/create')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -159,7 +173,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSeven"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fas fa-fw fa-share-alt"></i>
                     <span>Social Links</span>
                 </a>
                 <div id="collapseSeven" class="collapse {{ (request()->is('social-links') || request()->is('social/create')) ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -170,14 +184,15 @@
                 </div>
             </li>
 
+           
 
            
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
-            </li>
+            </li> --}}
 
             
             <!-- Sidebar Toggler (Sidebar) -->

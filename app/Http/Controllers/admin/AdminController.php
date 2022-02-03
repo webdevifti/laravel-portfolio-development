@@ -6,8 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Banner;
 use App\Models\Brand;
+use App\Models\Education;
+use App\Models\Funfact;
 use App\Models\Portfolio;
 use App\Models\Service;
+use App\Models\SocialLink;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,7 +41,11 @@ class AdminController extends Controller
         $brand = Brand::all();
         $testimonial = Testimonial::all();
         $service = Service::all();
-        return view('admin.index',compact('banner','about','portfolio','brand','testimonial','service'));
+        $fun = Funfact::all();
+        $education = Education::all();
+        $social = SocialLink::all();
+
+        return view('admin.index',compact('banner','about','portfolio','brand','testimonial','service','fun','education','social'));
     }
     public function logout(Request $request) {
         Auth::logout();
