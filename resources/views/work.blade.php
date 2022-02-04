@@ -1,4 +1,5 @@
 @extends('app.layout')
+@section('page_title','Portfolio | ' .$portfolio->title)
 @section('mainContent')
     
 <!-- main-area -->

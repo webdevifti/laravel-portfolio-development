@@ -1,5 +1,6 @@
 @extends('app.layout')
         <!-- header-end -->
+@section('page_title','Kufa | A Developer')
 @section('mainContent')
     <!-- offcanvas-start -->
     <div class="extra-info">

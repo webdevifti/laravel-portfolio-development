@@ -5,7 +5,7 @@
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
+        <title>@yield('page_title')</title>
         <meta name="description" content="{{ $site_info->site_description }}">
         <meta name="keywords" content="{{ $site_info->site_keyword }}">
         <meta name="author" content="Eftekhar Alam">
