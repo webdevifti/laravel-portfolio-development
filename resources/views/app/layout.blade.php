@@ -93,7 +93,7 @@
                     <div class="row align-items-center">
                         <div class="col-12">
                             <div class="copyright-text text-center">
-                                <p>Copyright© <span>Kufa</span> | All Rights Reserved</p>
+                                {{ $site_info->copyright_text }}
                             </div>
                         </div>
                     </div>
