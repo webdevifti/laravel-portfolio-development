@@ -1,4 +1,5 @@
 @extends('admin.layout')
+@section('title','Admin | Edit Education Content')
 
 @section('MainContainer')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
