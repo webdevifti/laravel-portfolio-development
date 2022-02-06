@@ -46,6 +46,9 @@ class Kernel extends HttpKernel
         ],
         'protectedRoutes' => [
             \App\Http\Middleware\MycustomeMiddleware::class
+        ],
+        'userRole' => [
+            \App\Http\Middleware\RoleMiddleware::class
         ]
     ];
 

@@ -3,6 +3,7 @@
 @section('MainContainer')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">My Profile</h1>
+        <button class="btn btn-info">My role is {{ $get_user->user_type }}</button>
     </div>
     @if($errors->any())
     @foreach ($errors->all() as $error)
@@ -22,6 +23,7 @@
             <div class="card shadow">
                 <div class="card-header">
                     <h3>My Information</h3>
+                    
                 </div>
                 <div class="card-body">
                     <form action="/profile/{{ $get_user->id }}" method="POST" enctype="multipart/form-data">

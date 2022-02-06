@@ -9,13 +9,17 @@
                 <i class="far fa-window-close"></i>
             </button>
         </div>
+        @if($site_info)
         <div class="logo-side mb-30">
-            <a href="index-2.html">
-                <img src="img/logo/logo.png" alt="" />
+            <a href="{{ url('/') }}">
+                <img src="{{ asset('uploads/logo/'.$site_info->logo) }}" alt="" />
             </a>
         </div>
+        @endif
+        @if($address)
         <div class="side-info mb-30">
             <div class="contact-list mb-30">
+                
                 <h4>Office Address</h4>
                 <p>{{ $address->office_physical_address }}</p>
             </div>
@@ -28,6 +32,7 @@
                 <p>{{ $address->email_address }}</p>
             </div>
         </div>
+        @endif
         @if($social_links)
         <div class="social-icon-right mt-20">
             @foreach($social_links as $social)
@@ -273,6 +278,7 @@
             <!-- brand-area-end -->
 
             <!-- contact-area -->
+            @if($address)
             <section id="contact" class="contact-area primary-bg pt-120 pb-120">
                 <div class="container">
                     <div class="row align-items-center">
@@ -306,6 +312,7 @@
                     </div>
                 </div>
             </section>
+            @endif
             <!-- contact-area-end -->
 
         </main>

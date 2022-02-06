@@ -45,22 +45,25 @@ Route::group(['middleware' => ['protectedRoutes']], function(){
     Route::put('/profile/changepass/{id}',[ProfileController::class,'updatePassword'])->name('profile.updatepass');
 
     // Address Routes
-    Route::get('/address-information',[AddressController::class, 'index'])->name('address');
-    Route::put('/address/{id}',[AddressController::class, 'update'])->name('address.update');
+    Route::group(['middleware' => ['userRole']], function(){
 
-    // Site Information Routes
-    Route::get('/site-information', [SiteInformation::class, 'index'])->name('site.information');
-    Route::put('/site/information/{id}', [SiteInformation::class, 'updateInformation'])->name('site.information.update');
-    Route::put('/site/logo/{id}', [SiteInformation::class, 'updateLogo'])->name('site.logo.update');
-    Route::put('/site/icon/{id}', [SiteInformation::class, 'updateSiteIcon'])->name('site.icon.update');
+        Route::get('/address-information',[AddressController::class, 'index'])->name('address');
+        Route::put('/address/{id}',[AddressController::class, 'update'])->name('address.update');
+        // Site Information Routes
+        Route::get('/site-information', [SiteInformation::class, 'index'])->name('site.information');
+        Route::put('/site/information/{id}', [SiteInformation::class, 'updateInformation'])->name('site.information.update');
+        Route::put('/site/logo/{id}', [SiteInformation::class, 'updateLogo'])->name('site.logo.update');
+        Route::put('/site/icon/{id}', [SiteInformation::class, 'updateSiteIcon'])->name('site.icon.update');
+        
+            //  User Profile Routes
+            Route::get('/users',[UserController::class, 'index'])->name('user.index');
+            Route::get('/user/create',[UserController::class, 'create'])->name('user.create');
+            Route::post('/user/create',[UserController::class, 'store'])->name('user.store');
+            Route::delete('/user/{id}',[UserController::class,'destroy'])->name('about.delete');
+            Route::get('/user/status/{id}',[UserController::class,'changeStatus']);
+    });
 
 
-    //  User Profile Routes
-    Route::get('/users',[UserController::class, 'index'])->name('user.index');
-    Route::get('/user/create',[UserController::class, 'create'])->name('user.create');
-    Route::post('/user/create',[UserController::class, 'store'])->name('user.store');
-    Route::delete('/user/{id}',[UserController::class,'destroy'])->name('about.delete');
-    Route::get('/user/status/{id}',[UserController::class,'changeStatus']);
 
     // Routes For Banner Section
     Route::get('/banners',[BannerController::class,'index'])->name('banners.index');
