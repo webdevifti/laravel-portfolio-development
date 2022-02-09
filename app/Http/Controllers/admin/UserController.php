@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\WelcomeMail;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -46,7 +48,9 @@ class UserController extends Controller
                 'user_type' => $request->user_type,
                 'password' => Hash::make($request->password),
             ]);
-            return redirect('/user/create')->with('upload_success','User has added Sucessfully!');
+            Mail::to('01iftekharalam@gmail.com')->send(new WelcomeMail);
+            return new WelcomeMail;
+            // return redirect('/user/create')->with('upload_success','User has added Sucessfully!');
         }catch(Exception $e){
             return redirect('/user/create')->with('upload_error','Could not uploaded!');
         }
