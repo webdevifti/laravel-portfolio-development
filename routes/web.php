@@ -16,7 +16,10 @@ use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\admin\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Mail\WelcomeMail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +33,12 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [MainController::class, 'index'])->name('frontend');
 Route::get('/work/{id}/{slug}', [MainController::class, 'show'])->name('single_work');
+
+
+Route::get('/email/sent', function(){
+    Mail::to('01iftekharalam@gmail.com')->send(new WelcomeMail);
+    return new WelcomeMail;
+});
 
 
 Auth::routes(['register' => false]);

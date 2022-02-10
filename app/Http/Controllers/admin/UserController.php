@@ -48,9 +48,8 @@ class UserController extends Controller
                 'user_type' => $request->user_type,
                 'password' => Hash::make($request->password),
             ]);
-            Mail::to('01iftekharalam@gmail.com')->send(new WelcomeMail);
-            return new WelcomeMail;
-            // return redirect('/user/create')->with('upload_success','User has added Sucessfully!');
+           
+            return redirect('/user/create')->with('upload_success','User has added Sucessfully!');
         }catch(Exception $e){
             return redirect('/user/create')->with('upload_error','Could not uploaded!');
         }
